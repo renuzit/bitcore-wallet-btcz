@@ -2,7 +2,7 @@ var _ = require('lodash');
 var url = require('url');
 var read = require('read')
 var log = require('npmlog');
-var Client = require('bitcore-wallet-client');
+var Client = require('bitcore-wallet-client-btcz');
 var FileStorage = require('./filestorage');
 var sjcl = require('sjcl');
 
@@ -92,8 +92,8 @@ Utils.loadEncrypted = function(client, opts, walletData, filename, cb) {
 Utils.getClient = function(args, opts, cb) {
   opts = opts || {};
 
-  var filename = args.file || process.env['WALLET_FILE'] || process.env['HOME'] + '/.wallet.dat';
-  var host = args.host || process.env['BWS_HOST'] || 'https://bws.bitpay.com/';
+  var filename = args.file || process.env['WALLET_FILE'] || process.env['HOME'] + '/.btczwallet.dat';
+  var host = args.host || process.env['BWS_HOST'] || 'https://bws.btcz.rocks/';
 
   var storage = new FileStorage({
     filename: filename,
@@ -180,7 +180,7 @@ Utils.saveClient = function(args, client, opts, cb) {
     opts = {};
   }
 
-  var filename = args.file || process.env['WALLET_FILE'] || process.env['HOME'] + '/.wallet.dat';
+  var filename = args.file || process.env['WALLET_FILE'] || process.env['HOME'] + '/.btczwallet.dat';
 
   var storage = new FileStorage({
     filename: filename,
@@ -220,7 +220,7 @@ Utils.findOneTxProposal = function(txps, id) {
 };
 
 Utils.UNITS2 = {
-  'btc': 100000000,
+  'btcz': 100000000,
   'bit': 100,
   'sat': 1,
 };
@@ -258,14 +258,8 @@ Utils.configureCommander = function(program) {
 };
 
 Utils.COIN = {
-  bch: {
-    name: 'bch',
-    toSatoshis: 100000000,
-    maxDecimals: 8,
-    minDecimals: 8,
-  },
-  btc: {
-    name: 'btc',
+  btcz: {
+    name: 'btcz',
     toSatoshis: 100000000,
     maxDecimals: 8,
     minDecimals: 8,
@@ -302,8 +296,8 @@ Utils.renderAmount = function(satoshis, coin, opts) {
 
   opts = opts || {};
 
-  var coin = coin || 'btc';
-  var u = Utils.COIN[coin] || Utils.COIN.btc;
+  var coin = coin || 'btcz';
+  var u = Utils.COIN[coin] || Utils.COIN.btcz;
   var amount = clipDecimals((satoshis / u.toSatoshis), u.maxDecimals).toFixed(u.maxDecimals);
   return addSeparators(amount, opts.thousandsSeparator || ',', opts.decimalSeparator || '.', u.minDecimals) + ' ' + u.name;
 };

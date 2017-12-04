@@ -69,14 +69,14 @@ describe('CliUtils', function() {
         '1.23 bit': 123,
         '0 bit': 0,
         '.45bit': 45,
-        '1btc': 100000000,
-        '  1btc': 100000000,
-        '9999btc': 999900000000,
-        '0.00000001btc': 1,
-        '00000.00000001BTC': 1,
-        '0.00000001 BTC': 1,
-        '0.123btc': 12300000,
-        '0.123   bTc': 12300000,
+        '1btcz': 100000000,
+        '  1btcz': 100000000,
+        '9999btcz': 999900000000,
+        '0.00000001btcz': 1,
+        '00000.00000001BTCZ': 1,
+        '0.00000001 BTCZ': 1,
+        '0.123btcz': 12300000,
+        '0.123   bTcz': 12300000,
       };
       _.each(texts, function(satoshi, text) {
         var amount = CliUtils.parseAmount(text);
@@ -87,18 +87,18 @@ describe('CliUtils', function() {
       var texts = [
         '',
         '  ',
-        'btc',
+        'btcz',
         '1satoshi',
         'no-number',
         '-3',
         '1 b t c',
-        'btc1',
-        'btc 1',
+        'btcz1',
+        'btcz 1',
         '1,234',
-        '0.000000001btc',
+        '0.000000001btcz',
         '0.1sat',
         '0.123bit',
-        '2.000000009btc',
+        '2.000000009btcz',
       ];
       _.each(texts, function(text) {
         var valid = true;

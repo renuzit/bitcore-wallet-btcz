@@ -1,7 +1,7 @@
 {
-  "name": "bitcore-wallet",
-  "description": "A CLI Mutisig HD Bitcoin Wallet, demo for Bitcore Wallet Service",
-  "author": "BitPay Inc",
+  "name": "bitcore-wallet-btcz",
+  "description": "A CLI Mutisig HD BitcoinZ Wallet, demo for Bitcore Wallet Service BTCZ",
+  "author": "The BitcoinZ Community",
   "version": "1.1.0",
   "keywords": [
     "bitcoin",
@@ -10,15 +10,15 @@
     "wallet"
   ],
   "repository": {
-    "url": "git@github.com:bitpay/bitcore-wallet.git",
+    "url": "git@github.com:renuzit/bitcore-wallet-btcz.git",
     "type": "git"
   },
   "bugs": {
-    "url": "https://github.com/bitpay/bitcore-wallet/issues"
+    "url": "https://github.com/renuzit/bitcore-wallet-btcz/issues"
   },
   "dependencies": {
     "async": "^2.5.0",
-    "bitcore-wallet-client": "6.4.0",
+    "bitcore-wallet-client-btcz": "git+https://github.com/renuzit/bitcore-wallet-client-btcz.git",
     "commander": "^2.6.0",
     "lodash": "^3.3.1",
     "moment": "^2.9.0",
@@ -29,6 +29,7 @@
   },
   "devDependencies": {
     "chai": "^3.3.0",
+    "mocha": "^4.0.1",
     "sinon": "^1.17.1"
   },
   "scripts": {
